@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Data Science Portfolio | Nawshin Ahana</title>
+
+    <!-- Google Fonts: Text Me One (all weights & italics) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Text Me One', sans-serif;
+            background: #f8fafc;
+            color: #970747;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #C96A92, #970747);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #70490f;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #C96A92;
+        }
+
+        /* Buttons & cards */
+        .btn {
+            display: inline-block;
+            background: #C96A92;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #C96A92;
+            color: #C96A92;
+        }
+
+        .btn-outline:hover {
+            background: #C96A92;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #70490f;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 64px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4a0434, #C96A92);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: #334155;
+            max-width: 650px;
+            margin: 0 auto 24px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .social-icons a {
+            color: #475569;
+            font-size: 1.6rem;
+            transition: color 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #C96A92;
+        }
+
+        /* Section headers */
+        .section {
+            padding: 64px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #334155;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .skill-badge {
+            background: #e2e8f0;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #0f172a;
+        }
+
+        /* Projects grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s;
+            border: 1px solid #eef2ff;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 16px;
+        }
+
+        .tech-tag {
+            background: #eef2ff;
+            color: #a4752e;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .project-desc {
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #C96A92;
+        }
+
+        .project-links a i {
+            margin-right: 6px;
+        }
+
+        /* Contact */
+        .contact-flex {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 24px 32px;
+            border-radius: 32px;
+            min-width: 180px;
+            box-shadow: 0 4px 10px rgba(201, 199, 199, 0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #C96A92;
+            margin-bottom: 12px;
+        }
+
+        .contact-item a {
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            color: #2a0f18;
+            margin-top: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            color: #970747;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-flex {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Personal Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Hi, I'm <span id="user-name-placeholder">Nawshin Ahana</span></h1>
+                <div class="tagline">
+                    Senior at the University of Pennsylvania
+                </div>
+                <a href="#projects" class="btn">View Projects →</a>
+                <div class="social-icons">
+                    <a href="https://github.com/xahana" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/nawshin-ahana" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="mailto:ahana.nawshin@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>
+                        I'm double majoring in <strong>Math</strong> <span class="highlight">(with a concentration in
+                            computational
+                            biology)</span> and Culture and Society of the Middle East & North Africa <strong>
+                            (CASMENA)</strong>. At the core of my work is a passion for making sense of complex, messy
+                        data—extracting signal from noise and building practical tools to address real-world challenges,
+                        whether through predictive modeling, data visualization, or simply finding a clearer way to
+                        frame a difficult problem.</p>
+                    <div class="soft-divider"></div>
+                    <p>
+                        <span class="question-tag"> Outside of class?</span>
+                        I'm probably tinkering on an independent project <span class="emoji-bullet">(</span>like this
+                        website<span class="emoji-bullet">)</span>, discovering new places and cultures, and exploring
+                        how artificial intelligence and technology can be harnessed for social good. I enjoy tackling
+                        concrete problems, blending rigorous analytical thinking with genuine human curiosity to create
+                        meaningful impact.
+                    </p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Independent Projects</h2>
+                <div class="projects-grid">
+
+                    <!-- Project 1 - replace with your own details -->
+                    <div class="project-card">
+                        <div class="project-title"> ***PROJECT 1*** </div>
+                        <div class="project-tech">
+                            <span class="tech-tag"> ***Language*** </span>
+                            <span class="tech-tag"> *** </span>
+                            <span class="tech-tag"> *** </span>
+                        </div>
+                        <div class="project-desc">
+                            Summary of Project here
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> ***code*** </a>
+                            <a href="#"><i class="fas fa-chart-line"></i> ***demo*** </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-title"> ***PROJECT 2*** </div>
+                        <div class="project-tech">
+                            <span class="tech-tag"> ***Language*** </span>
+                            <span class="tech-tag"> *** </span>
+                            <span class="tech-tag"> *** </span>
+                        </div>
+                        <div class="project-desc">
+                            Summary of Project here
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> ***code*** </a>
+                            <a href="#"><i class="fas fa-chart-line"></i> ***demo*** </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-title"> ***PROJECT 3*** </div>
+                        <div class="project-tech">
+                            <span class="tech-tag"> ***Language*** </span>
+                            <span class="tech-tag"> *** </span>
+                            <span class="tech-tag"> *** </span>
+                        </div>
+                        <div class="project-desc">
+                            Summary of Project here
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> ***code*** </a>
+                            <a href="#"><i class="fas fa-chart-line"></i> ***demo*** </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Let’s Connect</h2>
+                <div class="contact-flex">
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/xahana" target="_blank">github.com/xahana</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/nawshin-ahana"
+                            target="_blank">linkedin.com/in/nawshin-ahana</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ahana.nawshin@gmail.com">ahana.nawshin@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Nawshin Ahana – Personal Portfolio. Built with ☕ and curiosity.</p>
+        </div>
+    </footer>
+
+    <script>
+        console.log("Portfolio ready — replace project links, socials, and your name!");
+    </script>
+</body>
+
+</html>
