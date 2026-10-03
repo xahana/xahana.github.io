@@ -192,9 +192,13 @@
         /* Projects grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
         }
+        
+            /* Past project card spans full width */
+            .past-project-card {
+                grid-column: 1 / -1;}
 
         /* Courses grid */
         .courses-grid {
@@ -212,6 +216,8 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
             transition: all 0.25s;
             border: 1px solid #eef2ff;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -249,12 +255,14 @@
         .project-desc {
             color: #475569;
             margin-bottom: 20px;
+            flex: 1;
         }
 
         .project-links {
             display: flex;
             gap: 16px;
             margin-top: 8px;
+            flex-wrap: wrap;
         }
 
         .project-links a {
@@ -262,6 +270,11 @@
             font-weight: 500;
             font-size: 0.9rem;
             color: #C96A92;
+            transition: color 0.2s;
+        }
+
+        .project-links a:hover {
+            color: #70490f;
         }
 
         .project-links a i {
@@ -271,25 +284,21 @@
         /* COURSE CARDS */
         .courses-grid .project-card {
             padding: 16px 20px;
-            /*  vertical padding */
         }
 
         .courses-grid .project-title {
             font-size: 1.25rem;
-            /* title */
             margin-bottom: 4px;
             gap: 8px;
         }
 
         .courses-grid .project-tech {
             margin: 6px 0 10px;
-            /* vertical spacing */
             gap: 6px;
         }
 
         .courses-grid .project-desc {
             font-size: 0.85rem;
-            /* description text */
             line-height: 1.4;
             margin-bottom: 12px;
         }
@@ -302,7 +311,6 @@
             font-size: 0.8rem;
         }
 
-        /* Optional: fine-tune the icon size inside course cards */
         .courses-grid .project-title i {
             font-size: 1.2rem;
         }
@@ -347,6 +355,19 @@
             font-size: 0.9rem;
         }
 
+        /* soft divider (used in about) */
+        .soft-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 28px auto;
+            width: 80px;
+        }
+
+        .question-tag {
+            font-weight: 600;
+            color: #C96A92;
+        }
+
         @media (max-width: 640px) {
             .hero h1 {
                 font-size: 2.2rem;
@@ -364,9 +385,20 @@
                 flex-direction: column;
             }
 
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 18px;
+            }
+
             .courses-grid .project-card {
                 padding: 14px 18px;
             }
+        }
+
+        /* small style for past project card highlight */
+        .past-project-card {
+            border-left: 6px solid #C96A92;
         }
     </style>
 </head>
@@ -378,8 +410,9 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Other Projects</a></li>
-                 <li><a href="https://github.com/xahana/xahana.github.io/blob/main/Nawshin%20Ahana%20Complete%20College%20CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
+                <li><a href="#projects">Current Projects</a></li>
+                <li><a href="#past-projects">Past Projects</a></li>
+                <li><a href="https://github.com/xahana/xahana.github.io/blob/main/Nawshin%20Ahana%20Complete%20College%20CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
                 <li><a href="#courses">Courses</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -395,12 +428,9 @@
                     Senior at the University of Pennsylvania
                     <p>(Mathematics & MELC Departments)</p>
                 </div>
-                <!-- <a href="#projects" class="btn">View Projects →</a> -->
                 <div class="social-icons">
-                    <a href="https://github.com/xahana" target="_blank" aria-label="GitHub"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/nawshin-ahana" target="_blank" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/xahana" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/nawshin-ahana" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="mailto:ahana.nawshin@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
@@ -412,39 +442,23 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <p>
-                        I'm double majoring in <strong>Math</strong> <span>(with a concentration in
-                            computational
-                            biology)</span> and doing the <strong> Honors Program </strong>in Culture and Society of the Middle East & North Africa <strong>
-                            (CASMENA)</strong>. I am also taking Graduate-level courses in <strong>Statistics</strong> and <strong>Machine Learning</strong>, 
-                            in hope to do Masters in Data Science and AI later. 
-                            <p> </p>
-                            <p> </p>At the core of my work is a passion for making sense of complex, messy
-                        data—extracting signal from noise and building practical tools to address real-world challenges,
-                        whether through predictive modeling, data visualization, or simply finding a clearer way to
-                        frame a difficult problem.</p>
+                        I'm double majoring in <strong>Math</strong> <span>(with a concentration in computational biology)</span> and doing the <strong>Honors Program</strong> in Culture and Society of the Middle East & North Africa <strong>(CASMENA)</strong>. I am also taking Graduate-level courses in <strong>Statistics</strong> and <strong>Machine Learning</strong>, in hope to do Masters in Data Science and AI later.
+                    </p>
+                    <p> </p>
+                    <p> </p>At the core of my work is a passion for making sense of complex, messy data—extracting signal from noise and building practical tools to address real-world challenges, whether through predictive modeling, data visualization, or simply finding a clearer way to frame a difficult problem.
                     <div class="soft-divider"></div>
                     <p>
-                        <span class="question-tag"> Outside of class?</span>
-                        I'm probably baking banana bread or working on an independent project <strong> like
-                        codeing this
-                        website using HTML </strong>, discovering new places and cultures, and
-                        exploring
-                        how artificial intelligence and technology can be harnessed for social good.
+                        <span class="question-tag">Outside of class?</span> I'm probably baking banana bread or working on an independent project <strong>like coding this website using HTML</strong>, discovering new places and cultures, and exploring how artificial intelligence and technology can be harnessed for social good.
                     </p>
                 </div>
             </div>
         </section>
 
-
-
-
-
-        <!--Projects Section -->
-            <section id="projects" class="section">
+        <!-- Current Projects Section -->
+        <section id="projects" class="section">
             <div class="container">
                 <h2 class="section-title">Current Projects</h2>
                 <div class="projects-grid">
-                    
                     <div class="project-card">
                         <div class="project-title">F1 Race Predictor</div>
                         <div class="project-tech">
@@ -453,19 +467,17 @@
                         </div>
                         <div class="project-desc">
                             Working on a machine learning model using FastF1 dataset to predict Formula 1 race outcomes based on historical data, driver performance metrics, and track conditions. The project aims to provide insights into race strategies and potential winners.
-                            <p> <strong> Affiliated with </strong>with Wharton Sports Analytics and Business Initative (WSABI) </p>
+                            <p> <strong>Affiliated with</strong> Wharton Sports Analytics and Business Initiative (WSABI) </p>
                         </div>
                     </div>
 
-                    
                     <div class="project-card">
                         <div class="project-title">Directed Reading Program (DRP)</div>
                         <div class="project-tech">
-                            
                         </div>
                         <div class="project-desc">
-                        Independent math study on Cryptography and Number Theory, focusing on the mathematical foundations of secure communication, encryption algorithms, and the properties of prime numbers. The project explores both theoretical aspects and practical applications in modern cryptographic systems.
-                        <p> <strong> Affiliated with </strong>with University of Pennsylvania Mathematics Department </p>
+                            Independent math study on Cryptography and Number Theory, focusing on the mathematical foundations of secure communication, encryption algorithms, and the properties of prime numbers. The project explores both theoretical aspects and practical applications in modern cryptographic systems.
+                            <p> <strong>Affiliated with</strong> University of Pennsylvania Mathematics Department </p>
                         </div>
                         <div class="project-links">
                             <a href="https://web.sas.upenn.edu/math-drp/"><i></i> Program Link</a>
@@ -477,18 +489,50 @@
                         <div class="project-tech">
                         </div>
                         <div class="project-desc">
-                            Working on independent research in the Honors Program in Culture and Society of the Middle East & North Africa (CASMENA), focusing on Ur. The thesis involves working with orinal field data and notes of Sir Leonard Woolley.
-                            <p> <strong> Affiliated with </strong>with University of Pennsylvania Department of Middle Eastern Languages and Cultures </p>
+                            Working on independent research in the Honors Program in Culture and Society of the Middle East & North Africa (CASMENA), focusing on Ur. The thesis involves working with original field data and notes of Sir Leonard Woolley.
+                            <p> <strong>Affiliated with</strong> University of Pennsylvania Department of Middle Eastern Languages and Cultures </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section> 
+        </section>
+
+        <!-- PAST PROJECTS Section (with PDF snippet) -->
+        <section id="past-projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Past Projects</h2>
+                <div class="projects-grid">
+                    <!-- Research Proposal Card -->
+                    <div class="project-card past-project-card">
+                        <div class="project-title">
+                            <i class="fas fa-file-alt" style="color: #C96A92;"></i>
+                            Cardiac Phase & Emotional Memory: BDNF and ADRA2B
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Genomics</span>
+                            <span class="tech-tag">Cognitive Neuroscience</span>
+                            <span class="tech-tag">Epigenetics</span>
+                        </div>
+                        <div class="project-desc">
+                            <p><strong>Biology 4231 – Genome Sciences and Genomic Medicine (Spring 2026)</strong></p>
+                            <p>This research proposal investigates how cardiac phase (systole vs. diastole) influences emotional memory consolidation, and whether <strong>BDNF Val66Met</strong> and <strong>ADRA2B deletion</strong> variants moderate the "systolic interference" effect. The study integrates ECG timing, genomic stratification, and epigenetic assays (BDNF promoter methylation, histone marks) to predict individual differences in emotional memory.</p>
+                            <p><em>Key hypotheses:</em> Emotional stimuli may override systolic interference; ADRA2B deletion and BDNF Met carriers show enhanced emotional memory regardless of cardiac phase.</p>
+                        </div>
+                        <div class="project-links">
+                            <a href="Nawshin Ahana Proposal.pdf" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> Read Full Proposal (PDF)
+                            </a>
+                        </div>
+                    </div>
+                    <!-- You can add more past projects as additional cards here -->
+                </div>
+            </div>
+        </section>
 
         <!-- Courses Section -->
         <section id="courses" class="section">
             <div class="container">
-                <h2 class="section-title">Courses Taken</h2>
+                <h2 class="section-title">Analytical Courses Taken</h2>
                 <div class="courses-grid">
                     <!-- Course 1: Artificial Intelligence -->
                     <div class="project-card">
@@ -498,7 +542,6 @@
                         </div>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-
                         </div>
                         <div class="project-desc">
                             Explored core AI and machine learning techniques including search algorithms,
@@ -571,31 +614,9 @@
                             <p>
                                 ANOVA || Regression || Inference
                             </p>
-                            Logistic regression || Categorical data 
+                            Logistic regression || Categorical data
                         </div>
                     </div>
-
-                    <!-- Course 4: Computational Biology / Mathematical Modeling 
-                    <div class="project-card">
-                        <div class="project-title">
-                            <i class="fas fa-dna" style="color: #C96A92;"></i>
-                            Computational Biology
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Genscript</span>
-                            <span class="tech-tag">R</span>
-                        </div>
-                        <div class="project-desc">
-                            Sequence alignment, phylogenetic trees, Markov models, gene regulatory networks, and applied
-                            ML for genomics.
-                        </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-graduation-cap"></i> Course Info
-                            </a>
-                        </div>
-                    </div> -->
 
                     <!-- Course 5: STAT 5710 -->
                     <div class="project-card">
@@ -632,7 +653,6 @@
                     <!-- Course 6: STAT 5900/9210 -->
                     <div class="project-card">
                         <div class="project-title">
-            
                             STAT 5900: Observational Studies
                         </div>
                         <div class="project-tech">
@@ -659,7 +679,7 @@
                             Propensity Scores || Sensitivity Analysis || Instrumental Variables
                         </div>
                     </div>
-                    
+
                     <!-- Course 7: MATH 3600 -->
                     <div class="project-card">
                         <div class="project-title">
