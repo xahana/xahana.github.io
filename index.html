@@ -1,747 +1,729 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Data Science Portfolio | Nawshin Ahana</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Nawshin Ahana · Mathematics & Data Science Portfolio</title>
 
-    <!-- Google Fonts: Text Me One (all weights & italics) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    :root {
+      --rose: #a8134f;
+      --rose-soft: #c96a92;
+      --rose-tint: #fbeef3;
+      --ink: #1e1b1b;
+      --ink-soft: #4b4453;
+      --muted: #6b7280;
+      --line: #ece6ea;
+      --bg: #fdfcfb;
+      --card: #ffffff;
+      --shadow-sm: 0 1px 2px rgba(30, 27, 27, 0.04);
+      --shadow-md: 0 10px 30px -12px rgba(30, 27, 27, 0.12);
+      --shadow-lg: 0 24px 48px -20px rgba(30, 27, 27, 0.18);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1120px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-        body {
-            font-family: 'Text Me One', sans-serif;
-            background: #f8fafc;
-            color: #970747;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Navigation */
-        .navbar {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 16px 0;
-        }
-
-        .nav-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #C96A92, #970747);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.3px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #70490f;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #C96A92;
-        }
-
-        /* Buttons & cards */
-        .btn {
-            display: inline-block;
-            background: #C96A92;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s, transform 0.1s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #C96A92;
-            color: #C96A92;
-        }
-
-        .btn-outline:hover {
-            background: #C96A92;
-            color: white;
-        }
-
-        .btn:hover {
-            background: #70490f;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 64px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #4a0434, #C96A92);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 16px;
-        }
-
-        .hero .tagline {
-            font-size: 1.25rem;
-            color: #334155;
-            max-width: 650px;
-            margin: 0 auto 24px;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 24px;
-        }
-
-        .social-icons a {
-            color: #475569;
-            font-size: 1.6rem;
-            transition: color 0.2s;
-        }
-
-        .social-icons a:hover {
-            color: #C96A92;
-        }
-
-        /* Section headers */
-        .section {
-            padding: 64px 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 48px;
-            text-align: center;
-            letter-spacing: -0.02em;
-        }
-
-        /* About */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            color: #334155;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 32px;
-        }
-
-        .skill-badge {
-            background: #e2e8f0;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #0f172a;
-        }
-
-        /* Projects grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-        }
-        
-            /* Past project card spans full width */
-            .past-project-card {
-                grid-column: 1 / -1;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+  font-family: 'Tuffy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.65;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
+    ::selection { background: var(--rose-tint); color: var(--rose); }
+    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+    a { color: var(--rose); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
-        /* Courses grid */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 32px;
-            margin-top: 16px;
-        }
+    /* ---------- NAV ---------- */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(253, 252, 251, 0.85);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-flex { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+    .logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.25rem; color: var(--ink); }
+    .logo span { color: var(--rose); }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500; color: var(--ink-soft);
+      position: relative; padding: 6px 0; transition: color 0.2s var(--ease);
+    }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1.5px;
+      background: var(--rose); transform: scaleX(0); transform-origin: right;
+      transition: transform 0.35s var(--ease);
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-toggle { display: none; background: none; border: 0; font-size: 1.35rem; color: var(--ink); cursor: pointer; padding: 6px; }
 
-        /* Base card style (projects) */
-        .project-card {
-            background: white;
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: all 0.25s;
-            border: 1px solid #eef2ff;
-            display: flex;
-            flex-direction: column;
-        }
+    /* ---------- HERO ---------- */
+    .hero { padding: 88px 0 72px; text-align: center; }
+    .hero-photo {
+      width: 168px; height: 168px; margin: 0 auto 32px; border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(140deg, var(--rose-soft), var(--rose) 60%, #f0b6c9);
+      box-shadow: var(--shadow-md);
+      animation: floatIn 0.9s var(--ease) both;
+    }
+    .hero-photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    @keyframes floatIn { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
 
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-            border-color: #cbd5e1;
-        }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.08; margin-bottom: 18px; letter-spacing: -0.025em; }
+    .hero h1 em {
+      font-style: italic; font-weight: 400;
+      background: linear-gradient(120deg, var(--rose), var(--rose-soft));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .tagline { font-size: 1.1rem; color: var(--ink-soft); max-width: 620px; margin: 0 auto 10px; }
+    .tagline-sub { font-size: 0.95rem; color: var(--muted); margin-bottom: 28px; }
 
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    .social-icons { display: flex; justify-content: center; gap: 12px; margin-top: 8px; }
+    .social-icons a {
+      display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--card); color: var(--ink-soft); border: 1px solid var(--line);
+      font-size: 1rem; transition: all 0.25s var(--ease); box-shadow: var(--shadow-sm);
+    }
+    .social-icons a:hover {
+      color: #fff; background: var(--rose); border-color: var(--rose);
+      transform: translateY(-2px); box-shadow: var(--shadow-md);
+    }
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px 0 16px;
-        }
+    /* ---------- SECTIONS ---------- */
+    .section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+    .section:last-of-type { border-bottom: 0; }
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.15rem); }
 
-        .tech-tag {
-            background: #eef2ff;
-            color: #66420c;
-            font-size: 0.7rem;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-weight: 500;
-        }
+    /* ---------- ABOUT ---------- */
+    .about-content { max-width: 760px; margin: 0 auto; text-align: center; color: var(--ink-soft); font-size: 1.05rem; }
+    .about-content p + p { margin-top: 20px; }
+    .about-content strong { color: var(--ink); font-weight: 600; }
+    .soft-divider { height: 1px; width: 64px; background: var(--rose-soft); margin: 32px auto; opacity: 0.5; }
+    .question-tag { font-weight: 600; color: var(--rose); }
 
-        .project-desc {
-            color: #475569;
-            margin-bottom: 20px;
-            flex: 1;
-        }
+    /* ---------- CARDS ---------- */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .project-card {
+      background: var(--card); border-radius: var(--radius); padding: 28px;
+      border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #e3d6dd; }
+    .past-project-card { grid-column: 1 / -1; border-left: 3px solid var(--rose); }
+    .project-title {
+      font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600;
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tech-tag {
+      background: var(--rose-tint); color: var(--rose); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.02em; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;
+    }
+    .project-desc { color: var(--ink-soft); font-size: 0.95rem; flex: 1; }
+    .project-desc p + p { margin-top: 10px; }
+    .affil { font-size: 0.8rem; color: var(--muted); margin-top: 12px; }
+    .project-links { display: flex; gap: 18px; margin-top: 18px; flex-wrap: wrap; }
+    .project-links a {
+      font-size: 0.85rem; font-weight: 600; color: var(--rose);
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.2s var(--ease), color 0.2s;
+    }
+    .project-links a:hover { color: var(--ink); gap: 9px; }
 
-        .project-links {
-            display: flex;
-            gap: 16px;
-            margin-top: 8px;
-            flex-wrap: wrap;
-        }
+    /* ---------- COURSES ---------- */
+    .course-group { margin-bottom: 64px; }
+    .course-group:last-child { margin-bottom: 0; }
+    .group-title {
+      font-size: 1.35rem; margin-bottom: 8px; text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .group-title i { color: var(--rose); font-size: 1rem; }
+    .group-sub { text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 36px; }
 
-        .project-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: #C96A92;
-            transition: color 0.2s;
-        }
+    .level-block { margin-bottom: 32px; }
+    .level-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+      padding-bottom: 10px; margin-bottom: 6px; border-bottom: 1px solid var(--line);
+    }
+    .course-list { list-style: none; }
+    .course-item { border-bottom: 1px solid var(--line); }
+    .course-item:last-child { border-bottom: 0; }
+    .course-btn {
+      width: 100%; display: grid; grid-template-columns: 110px 1fr auto auto;
+      gap: 18px; align-items: center;
+      background: none; border: 0; text-align: left; cursor: pointer;
+      padding: 14px 10px; font-family: inherit; color: var(--ink);
+      border-radius: var(--radius-sm);
+      transition: background 0.25s var(--ease), padding-left 0.25s var(--ease);
+    }
+    .course-btn:hover { background: var(--rose-tint); padding-left: 16px; }
+    .course-btn:hover .course-name { color: var(--rose); }
+    .course-code {
+  font-family: 'Tuffy', monospace; font-size: 0.78rem; font-weight: 600;
+  color: var(--rose); background: var(--rose-tint);
+  padding: 4px 10px; border-radius: 6px; text-align: center; white-space: nowrap;
+}
+    .course-name {
+      font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500;
+      transition: color 0.2s var(--ease);
+    }
+    .course-prof { font-size: 0.82rem; color: var(--muted); text-align: right; white-space: nowrap; }
+    .course-grade {
+      font-size: 0.72rem; font-weight: 600; color: var(--ink-soft);
+      background: var(--bg); border: 1px solid var(--line);
+      padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+    }
+    .course-btn:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
 
-        .project-links a:hover {
-            color: #70490f;
-        }
+    /* ---------- MODAL ---------- */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(30, 27, 27, 0.45); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s var(--ease);
+    }
+    .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+    .modal {
+      background: var(--card); border-radius: var(--radius);
+      max-width: 580px; width: 100%; max-height: 85vh; overflow-y: auto;
+      padding: 36px; box-shadow: var(--shadow-lg);
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.35s var(--ease);
+    }
+    .modal-backdrop.open .modal { transform: none; }
+    .modal-close {
+      float: right; background: var(--bg); border: 1px solid var(--line);
+      width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+      color: var(--muted); font-size: 1rem; display: grid; place-items: center;
+      transition: all 0.2s var(--ease); margin-left: 12px;
+    }
+    .modal-close:hover { background: var(--rose); color: #fff; border-color: var(--rose); }
+    .modal-code { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-bottom: 8px; }
+    .modal h3 { font-size: 1.5rem; margin-bottom: 6px; }
+    .modal-meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+    .modal-meta i { color: var(--rose); margin-right: 6px; width: 16px; text-align: center; }
+    .modal-meta + .modal-meta { margin-bottom: 20px; }
+    .modal-body { color: var(--ink-soft); font-size: 0.95rem; margin-top: 16px; }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 18px 0 0; }
+    .modal-link {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+      font-weight: 600; font-size: 0.88rem; color: var(--rose);
+    }
+    .modal-link:hover { text-decoration: underline; }
 
-        .project-links a i {
-            margin-right: 6px;
-        }
+    /* ---------- CONTACT ---------- */
+    .contact-flex { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .contact-item {
+      background: var(--card); padding: 28px 36px; border-radius: var(--radius);
+      min-width: 220px; text-align: center; border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .contact-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .contact-item i { font-size: 1.5rem; color: var(--rose); margin-bottom: 12px; }
+    .contact-item a { display: block; font-weight: 500; color: var(--ink); font-size: 0.92rem; }
+    .contact-item a:hover { color: var(--rose); }
 
-        /* COURSE CARDS */
-        .courses-grid .project-card {
-            padding: 16px 20px;
-        }
+    /* ---------- FOOTER ---------- */
+    footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
 
-        .courses-grid .project-title {
-            font-size: 1.25rem;
-            margin-bottom: 4px;
-            gap: 8px;
-        }
+    /* ---------- REVEAL ---------- */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
 
-        .courses-grid .project-tech {
-            margin: 6px 0 10px;
-            gap: 6px;
-        }
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 960px) {
+      .course-btn { grid-template-columns: 110px 1fr auto; }
+      .course-prof { display: none; }
+    }
+    @media (max-width: 860px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--bg); border-bottom: 1px solid var(--line);
+        padding: 12px 24px 20px; box-shadow: var(--shadow-md);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 0; font-size: 1rem; }
+      .nav-links a::after { display: none; }
+      .course-btn { grid-template-columns: 1fr auto; gap: 12px; }
+      .course-code { grid-column: 1 / -1; justify-self: start; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 64px 0; }
+      .hero { padding: 56px 0; }
+      .hero-photo { width: 132px; height: 132px; }
+      .modal { padding: 28px 22px; }
+    }
 
-        .courses-grid .project-desc {
-            font-size: 0.85rem;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .courses-grid .project-links {
-            margin-top: 4px;
-        }
-
-        .courses-grid .project-links a {
-            font-size: 0.8rem;
-        }
-
-        .courses-grid .project-title i {
-            font-size: 1.2rem;
-        }
-
-        /* Contact */
-        .contact-flex {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-
-        .contact-item {
-            background: white;
-            padding: 24px 32px;
-            border-radius: 32px;
-            min-width: 180px;
-            box-shadow: 0 4px 10px rgba(201, 199, 199, 0.02);
-            border: 1px solid #e2e8f0;
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            color: #C96A92;
-            margin-bottom: 12px;
-        }
-
-        .contact-item a {
-            display: block;
-            text-decoration: none;
-            font-weight: 500;
-            color: #2a0f18;
-            margin-top: 8px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 32px 0;
-            color: #970747;
-            font-size: 0.9rem;
-        }
-
-        /* soft divider (used in about) */
-        .soft-divider {
-            height: 1px;
-            background: #e2e8f0;
-            margin: 28px auto;
-            width: 80px;
-        }
-
-        .question-tag {
-            font-weight: 600;
-            color: #C96A92;
-        }
-
-        @media (max-width: 640px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .nav-flex {
-                flex-direction: column;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 18px;
-            }
-
-            .courses-grid .project-card {
-                padding: 14px 18px;
-            }
-        }
-
-        /* small style for past project card highlight */
-        .past-project-card {
-            border-left: 6px solid #C96A92;
-        }
-    </style>
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container nav-flex">
-            <div class="logo">Nawshin Ahana</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Current Projects</a></li>
-                <li><a href="#past-projects">Past Projects</a></li>
-               <!-- <li><a href="https://github.com/xahana/xahana.github.io/blob/main/Nawshin%20Ahana%20Complete%20College%20CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></li> --> 
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+  <!-- ============ NAV ============ -->
+  <nav class="navbar">
+    <div class="container nav-flex">
+      <div class="logo">Nawshin <span>Ahana</span></div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Research</a></li>
+        <li><a href="#paper">Paper</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-photo">
+          <img src="profile.jpg" alt="Portrait of Nawshin Ahana"
+               onerror="this.src='https://ui-avatars.com/api/?name=Nawshin+Ahana&size=320&background=fbeef3&color=a8134f&font-size=0.33'" />
+        </div>
+        <h1>Hi, I'm <em>Ahana</em>.</h1>
+        <p class="tagline">Senior at the University of Pennsylvania</p>
+        <p class="tagline-sub">Math &amp; CASMENA (Honnors Program)</p>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/nawshin-ahana" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:ahana.nawshin@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title"> A little about me</h2>
+        </div>
+        <div class="about-content reveal">
+         <p>
+  I'm pursuing a double major in <strong>Mathematics</strong> (with a concentration in Computational Biology) and <strong>Culture &amp; Society of the Middle East &amp; North Africa</strong>, through the <strong>Honors program</strong>. I'm also taking graduate-level courses in <strong>Statistics</strong> and <strong>Machine Learning</strong> to deepen my understanding of <strong>AI</strong> and how computational systems work.
+</p>
+<p>
+  What drives me is a love of making sense of complex data: finding the signal in the noise and building practical tools that address real-world problems. Whether through predictive modeling, data visualization, or simply finding a clearer way to frame a difficult question, I enjoy turning ambiguity into something useful.
+</p>
+<div class="soft-divider"></div>
+<p>
+  <span class="question-tag">Outside of class?</span> I'm probably baking banana bread, working on an independent project like <strong>coding this website by hand</strong>, discovering new places and cultures, or exploring how AI and technology can be harnessed for social good.
+</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CURRENT PROJECTS ============ -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Current projects</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="project-title">F1 Race Predictor</div>
+            <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">R</span></div>
+            <div class="project-desc">
+              Building a machine learning model on the FastF1 dataset to predict Formula 1 race outcomes from historical data, driver performance metrics, and track conditions — with a focus on strategy insight and likely race winners.
+            </div>
+            <p class="affil"><strong>Affiliated with</strong> Wharton Sports Analytics and Business Initiative (WSABI)</p>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-title">Directed Reading Program</div>
+            <div class="project-desc">
+              Independent study of cryptography and number theory, exploring the mathematical foundations of secure communication, encryption algorithms, and the properties of prime numbers — both theoretically and in modern cryptographic systems.
+            </div>
+            <p class="affil"><strong>Affiliated with</strong> Penn Mathematics Department</p>
+            <div class="project-links">
+              <a href="https://web.sas.upenn.edu/math-drp/" target="_blank" rel="noopener">Program →</a>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-title"> Archaeological Research</div>
+            <div class="project-desc">
+                Conducting independent research on primary anthropological and biological data from the ancient city of Ur, drawing directly from Sir Leonard Woolley’s original 1920s excavation records and field notes.            </div>
+            <p class="affil"><strong>Affiliated with</strong> Penn Museum and UPenn’s Department of Middle Eastern Languages and Cultures (MELC)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAPER ============ -->
+    <section id="paper" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Paper</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card past-project-card reveal">
+            <div class="project-title">
+              <i class="fas fa-file-alt" style="color: var(--rose);"></i>
+              Cardiac Phase &amp; Emotional Memory: BDNF and ADRA2B
+            </div>
+            <div class="project-tech">
+              <span class="tech-tag">Genomics</span>
+              <span class="tech-tag">Cognitive Neuroscience</span>
+              <span class="tech-tag">Epigenetics</span>
+            </div>
+            <div class="project-desc">
+              <p><strong>BIOL 4231 — Genome Sciences and Genomic Medicine (Spring 2026)</strong></p>
+              <p>This research proposal investigates how cardiac phase (systole vs. diastole) influences emotional memory consolidation, and whether <strong>BDNF Val66Met</strong> and <strong>ADRA2B deletion</strong> variants moderate the "systolic interference" effect. The study integrates ECG timing, genomic stratification, and epigenetic assays (BDNF promoter methylation, histone marks) to predict individual differences in emotional memory.</p>
+              <p><em>Key hypotheses:</em> Emotional stimuli may override systolic interference; ADRA2B deletion and BDNF Met carriers show enhanced emotional memory regardless of cardiac phase.</p>
+            </div>
+            <p class="affil"><strong>Affiliated with</strong> Pioneer Academics &amp; Penn Biology Department</p>
+            <div class="project-links">
+              <a href="https://github.com/xahana/xahana.github.io/blob/main/Nawshin%20Ahana%20Proposal.pdf" target="_blank" rel="noopener">
+                <i class="fas fa-file-pdf"></i> Read the full proposal
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COURSES ============ -->
+    <section id="courses" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Analytical &amp; Biological Courses</h2>
+        </div>
+
+        <!-- ================= ANALYTICAL ================= -->
+        <div class="course-group reveal">
+          <h3 class="group-title"><i class="fas fa-square-root-variable"></i> Analytical</h3>
+          <p class="group-sub">Mathematics · Statistics · Computer Science · Economics</p>
+
+          <!-- ---- UNDERGRADUATE ---- -->
+          <div class="level-block">
+            <div class="level-label">Undergraduate</div>
+            <ul class="course-list">
+               <li class="course-item">
+  <button class="course-btn" data-code="MATH 1410" data-title="Calculus, Part II" data-prof="Patrick Shields" 
+    data-desc="Functions of several variables, vector-valued functions, partial derivatives and applications, double and triple integrals, conic sections, polar coordinates, vectors and vector calculus, first order ordinary differential equations. Applications to physical sciences. Use of symbolic manipulation and graphics software in calculus."
+    data-tags="Multivariable Calculus|Vector Calculus|Partial Derivatives|Multiple Integrals|ODEs">
+    <span class="course-code">MATH 1410</span>
+    <span class="course-name">Calculus, Part II</span>
+  </button>
+</li>
+<li class="course-item">
+  <button class="course-btn" data-code="MATH 2400" data-title="Calculus, Part III" data-prof="Dennis DeTurck"
+    data-desc="Linear algebra: vectors, matrices, systems of linear equations, vector spaces, subspaces, spans, bases, and dimension, eigenvalues, and eigenvectors, matrix exponentials. Ordinary differential equations: higher-order homogeneous and inhomogeneous ODEs and linear systems of ODEs, phase plane analysis, non-linear systems."
+    data-tags="Linear Algebra|Vector Spaces|Eigenvalues|ODEs|Phase Plane Analysis">
+    <span class="course-code">MATH 2400</span>
+    <span class="course-name">Calculus, Part III</span>
+  </button>
+</li>
+            <li class="course-item">
+  <button class="course-btn" data-code="MATH 2410" data-title="Calculus, Part IV" data-prof="Davi Maximo"
+    data-desc="Partial differential equations and their solutions, including solutions of the wave, heat and Laplace equations, and Sturm-Liouville problems. Introduction to Fourier series and Fourier transforms. Computation of solutions, modeling using PDEs, geometric intuition, and qualitative understanding of the evolution of systems according to the type of partial differential operator."
+    data-tags="PDEs|Fourier Series|Sturm-Liouville|Heat Equation|Wave Equation">
+    <span class="course-code">MATH 2410</span>
+    <span class="course-name">Calculus, Part IV</span>
+  </button>
+</li>
+              <li class="course-item">
+  <button class="course-btn" data-code="MATH 3700" data-title="Algebra" data-prof="Angela Gibney"
+    data-desc="An introduction to the basic concepts of modern algebra. The course covers linear algebra (including eigenvalues, eigenvectors, and the Jordan canonical form), groups (including subgroups, quotient groups, homomorphisms, Sylow theorems, and permutation groups), and rings and fields."
+    data-tags="Groups|Rings|Fields|Linear Algebra|Eigenvalues|Sylow Theorems|Jordan Canonical Form">
+    <span class="course-code">MATH 3700</span>
+    <span class="course-name">Algebra</span>
+  </button>
+</li>
+              <li class="course-item">
+  <button class="course-btn" data-code="MATH 3600" data-title="Real Analysis" data-prof="Andrew Cooper"
+    data-desc="A study of the foundations of differential and integral calculus, including the real numbers and elementary topology, continuous and differentiable functions, uniform convergence of series of functions, and the inverse and implicit function theorems."
+    data-tags="Real Numbers|Topology|Continuity|Uniform Convergence|Inverse Function Theorem">
+    <span class="course-code">MATH 3600</span>
+    <span class="course-name">Real Analysis</span>
+  </button>
+</li>
+              <li class="course-item">
+  <button class="course-btn" data-code="MATH 3200" data-title="Computer Methods in Mathematical Science I" data-prof="Dennis DeTurck"
+    data-desc="Students will use symbolic manipulation software and write programs to solve problems in numerical quadrature, equation-solving, linear algebra and differential equations. Theoretical and computational aspects of the methods will be discussed along with error analysis and a critical comparison of methods."
+    data-tags="Python|Numerical Quadrature|Equation Solving|Linear Algebra|Differential Equations|Error Analysis">
+    <span class="course-code">MATH 3200</span>
+    <span class="course-name">Computer Methods in Mathematical Science I</span>
+  </button>
+</li>
+<li class="course-item">
+  <button class="course-btn" data-code="STAT 4300" data-title="Probability" data-prof="Winston Lin" 
+    data-desc="Discrete and continuous sample spaces and probability; random variables, distributions, independence; expectation and generating functions; Markov chains and recurrence theory."
+    data-tags="Probability|Random Variables|Markov Chains|Generating Functions">
+    <span class="course-code">STAT 4300</span>
+    <span class="course-name">Probability</span>
+  </button>
+</li>
+<li class="course-item">
+  <button class="course-btn" data-code="STAT 4310" data-title="Statistical Inference" data-prof="Zhimei Ren" 
+    data-desc="Graphical displays; one- and two-sample confidence intervals; one- and two-sample hypothesis tests; one- and two-way ANOVA; simple and multiple linear least-squares regression; nonlinear regression; variable selection; logistic regression; categorical data analysis; goodness-of-fit tests."
+    data-tags="Hypothesis Testing|ANOVA|Regression|Logistic Regression|Categorical Data">
+    <span class="course-code">STAT 4310</span>
+    <span class="course-name">Statistical Inference</span>
+  </button>
+</li>
             </ul>
+          </div>
+
+          <!-- ---- MASTER'S ---- -->
+          <div class="level-block">
+            <div class="level-label">Master's</div>
+            <ul class="course-list">
+               <li class="course-item">
+  <button class="course-btn" data-code="CIS 5210" data-title="Artificial Intelligence" data-prof="Jay (Joyce) Zhou" 
+    data-desc="This course investigates algorithms to implement resource-limited knowledge-based agents which sense and act in the world. Topics include search, machine learning, probabilistic reasoning, natural language processing, knowledge representation and logic. After a brief introduction to the language, programming assignments will be in Python."
+    data-tags="Python|Search|Machine Learning|Probabilistic Reasoning|NLP|Knowledge Representation">
+    <span class="course-code">CIS 5210</span>
+    <span class="course-name">Artificial Intelligence</span>
+  </button>
+</li>
+<li class="course-item">
+  <button class="course-btn" data-code="MATH 5140" data-title="Advanced Linear Algebra" data-prof="Julia Hartmann"
+    data-desc="Topics will include: Vector spaces, Basis and dimension, quotients; Linear maps and matrices; Determinants, Dual spaces and maps; Invariant subspaces, Canonical forms; Scalar products; Euclidean, unitary and symplectic spaces; Orthogonal and Unitary operators; Tensor products and polylinear maps; Symmetric and skew-symmetric tensors and exterior algebra."
+    data-tags="Vector Spaces|Linear Maps|Canonical Forms|Tensor Products|Exterior Algebra">
+    <span class="course-code">MATH 5140</span>
+    <span class="course-name">Advanced Linear Algebra</span>
+  </button>
+</li>
+<li class="course-item">
+  <button class="course-btn" data-code="STAT 5710" data-title="Modern Data Mining" data-prof="Ying Jin" 
+    data-desc="Modern Data Mining: Statistics or Data Science has been evolving rapidly to keep up with the modern world. While classical multiple regression and logistic regression technique continue to be the major tools we go beyond to include methods built on top of linear models such as LASSO and Ridge regression. Contemporary methods such as KNN, Random Forest, Support Vector Machines, Principal Component Analyses (PCA), the bootstrap and others are also covered. Text mining especially through PCA is another topic of the course. While learning all the techniques, we keep in mind that our goal is to tackle real problems."
+    data-tags="Python|LASSO|Ridge|KNN|Random Forest|SVM|PCA|Bootstrap|Text Mining">
+    <span class="course-code">STAT 5710</span>
+    <span class="course-name">Modern Data Mining</span>
+  </button>
+</li>
+            </ul>
+          </div>
+
+          <!-- ---- PhD ---- -->
+          <div class="level-block">
+            <div class="level-label">PhD</div>
+            <ul class="course-list">
+             <li class="course-item">
+  <button class="course-btn" data-code="STAT 9210" data-title="Observational Studies" data-prof="Dylan Small" 
+    data-desc="This course will cover statistical methods for the design and analysis of observational studies. Topics will include the potential outcomes framework for causal inference; randomized experiments; matching and propensity score methods for controlling confounding in observational studies; tests of hidden bias; sensitivity analysis; and instrumental variables."
+    data-tags="R|Causal Inference|Potential Outcomes|Propensity Scores|Sensitivity Analysis|Instrumental Variables">
+    <span class="course-code">STAT 9210</span>
+    <span class="course-name">Observational Studies</span>
+  </button>
+</li>
+            </ul>
+          </div>
         </div>
-    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>Hi, I'm <span id="user-name-placeholder">Ahana</span></h1>
-                <div class="tagline">
-                    Senior at the University of Pennsylvania
-                    <p>(Mathematics & MELC Departments)</p>
-                </div>
-                <div class="social-icons">
-                    <!-- <a href="https://github.com/xahana" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a> -->
-                    <a href="https://linkedin.com/in/nawshin-ahana" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:ahana.nawshin@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </section>
+        <!-- ================= BIOLOGICAL ================= -->
+        <div class="course-group reveal">
+          <h3 class="group-title"><i class="fas fa-dna"></i> Biological</h3>
+          <p class="group-sub">Biology · Chemistry · Genomics</p>
 
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <p>
-                        I'm double majoring in <strong>Math</strong> <span>(with a concentration in computational biology)</span> and doing the <strong>Honors Program</strong> in Culture and Society of the Middle East & North Africa <strong>(CASMENA)</strong>. I am also taking Graduate-level courses in <strong>Statistics</strong> and <strong>Machine Learning</strong>, to learn more about AI and how computer systems operates. 
-                    </p>
-                    <p> </p>
-                    <p> </p>At the core of my work is a passion for making sense of complex, messy data—extracting signal from noise and building practical tools to address real-world challenges, whether through predictive modeling, data visualization, or simply finding a clearer way to frame a difficult problem.
-                    <div class="soft-divider"></div>
-                    <p>
-                        <span class="question-tag">Outside of class?</span> I'm probably baking banana bread or working on an independent project <strong>like coding this website using HTML</strong>, discovering new places and cultures, and exploring how artificial intelligence and technology can be harnessed for social good.
-                    </p>
-                </div>
-            </div>
-        </section>
+          <!-- ---- UNDERGRADUATE ---- -->
+          <div class="level-block">
+            <div class="level-label">Undergraduate</div>
+            <ul class="course-list">
+            
+              <li class="course-item">
+                <button class="course-btn" data-code="BIOL 2410" data-title="Evolutionary Biology" data-prof=" Corlett Wood" 
+                  data-desc="Mechanisms of evolution: natural selection, genetic drift, speciation, phylogenetics, and the evidence for evolutionary theory."
+                  data-tags="Evolution|Genetics|Phylogenetics">
+                  <span class="course-code">BIOL 2410</span>
+                  <span class="course-name">Evolutionary Biology</span>
+                </button>
+              </li>
+              <li class="course-item">
+                <button class="course-btn" data-code="BIOL 2610" data-title="Ecology: From Individuals to Ecosystems" data-prof=" Erol Akçay and Brent R. Helliker" 
+                  data-desc="Ecological patterns and processes across scales — from individual organisms to populations, communities, and ecosystems."
+                  data-tags="Ecology|Populations|Ecosystems">
+                  <span class="course-code">BIOL 2610</span>
+                  <span class="course-name">Ecology: From Individuals to Ecosystems</span>
+                  
+                </button>
+              </li>
+              
+             
+              <li class="course-item">
+                <button class="course-btn" data-code="CHEM 2411" data-title="Principles of Organic Chemistry I with Laboratory" data-prof="Aron Clarke" 
+                  data-desc="Structure, bonding, stereochemistry, and reactivity of organic molecules — with a laboratory component emphasizing synthesis and characterization."
+                  data-tags="Organic Chemistry|Synthesis|Lab">
+                  <span class="course-code">CHEM 2411</span>
+                  <span class="course-name">Principles of Organic Chemistry I with Laboratory</span>
+                  
+                </button>
+              </li>
+              <li class="course-item">
+                <button class="course-btn" data-code="CHEM 2421" data-title="Principles of Organic Chemistry II with Laboratory" data-prof="Aron Clarke"
+                  data-desc="Continuation of organic chemistry: aromaticity, carbonyl chemistry, reaction mechanisms, and multi-step synthesis — with laboratory."
+                  data-tags="Organic Chemistry|Mechanisms|Lab">
+                  <span class="course-code">CHEM 2421</span>
+                  <span class="course-name">Principles of Organic Chemistry II with Laboratory</span>
+                  
+                </button>
+              </li>
+            </ul>
+          </div>
 
-        <!-- Current Projects Section -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Current Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-title">F1 Race Predictor</div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">R</span>
-                        </div>
-                        <div class="project-desc">
-                            Working on a machine learning model using FastF1 dataset to predict Formula 1 race outcomes based on historical data, driver performance metrics, and track conditions. The project aims to provide insights into race strategies and potential winners.
-                            <p> <strong>Affiliated with</strong> Wharton Sports Analytics and Business Initiative (WSABI) </p>
-                        </div>
-                    </div>
+          <!-- ---- MASTER'S ---- -->
+          <div class="level-block">
+            <div class="level-label">Master's</div>
+            <ul class="course-list">
+             <li class="course-item">
+                <button class="course-btn" data-code="BIOL 4231" data-title="Genome Science and Genomic Medicine" data-prof="Dr. Brian D. Gregory "
+                  data-desc="Modern genomics and its translation to medicine — genome structure, sequencing technologies, epigenetics, and the genomic basis of disease. Capstone: an original research proposal (see Paper section)."
+                  data-tags="Genomics|Epigenetics|Genomic Medicine">
+                  <span class="course-code">BIOL 4231</span>
+                  <span class="course-name">Genome Science and Genomic Medicine</span>
+                </button>
+              </li>
+            </ul>
+          </div>
 
-                    <div class="project-card">
-                        <div class="project-title">Directed Reading Program (DRP)</div>
-                        <div class="project-tech">
-                        </div>
-                        <div class="project-desc">
-                            Independent math study on Cryptography and Number Theory, focusing on the mathematical foundations of secure communication, encryption algorithms, and the properties of prime numbers. The project explores both theoretical aspects and practical applications in modern cryptographic systems.
-                            <p> <strong>Affiliated with</strong> University of Pennsylvania Mathematics Department </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://web.sas.upenn.edu/math-drp/"><i></i> Program Link</a>
-                        </div>
-                    </div>
+    </section>
 
-                    <div class="project-card">
-                        <div class="project-title">Honors Thesis</div>
-                        <div class="project-tech">
-                        </div>
-                        <div class="project-desc">
-                            Working on independent research in the Honors Program in Culture and Society of the Middle East & North Africa (CASMENA), focusing on Ur. The thesis involves working with original field data and notes of Sir Leonard Woolley.
-                            <p> <strong>Affiliated with</strong> University of Pennsylvania Department of Middle Eastern Languages and Cultures </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAST PROJECTS Section (with PDF snippet) -->
-        <section id="past-projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Paper</h2>
-                <div class="projects-grid">
-                    <!-- Research Proposal Card -->
-                    <div class="project-card past-project-card">
-                        <div class="project-title">
-                            <i class="fas fa-file-alt" style="color: #C96A92;"></i>
-                            Cardiac Phase & Emotional Memory: BDNF and ADRA2B
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Genomics</span>
-                            <span class="tech-tag">Cognitive Neuroscience</span>
-                            <span class="tech-tag">Epigenetics</span>
-                        </div>
-                        <div class="project-desc">
-                            <p><strong>Biology 4231 – Genome Sciences and Genomic Medicine (Spring 2026)</strong></p>
-                            <p>This research proposal investigates how cardiac phase (systole vs. diastole) influences emotional memory consolidation, and whether <strong>BDNF Val66Met</strong> and <strong>ADRA2B deletion</strong> variants moderate the "systolic interference" effect. The study integrates ECG timing, genomic stratification, and epigenetic assays (BDNF promoter methylation, histone marks) to predict individual differences in emotional memory.</p>
-                            <p><em>Key hypotheses:</em> Emotional stimuli may override systolic interference; ADRA2B deletion and BDNF Met carriers show enhanced emotional memory regardless of cardiac phase.</p>
-                            <p><strong>Affiliated with: Pioneer Acadamics & University of Pennsylvania Biology Department</strong></p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/xahana/xahana.github.io/blob/main/Nawshin%20Ahana%20Proposal.pdf" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> Read Full Proposal (PDF)
-                            </a>
-                        </div>
-                    </div>
-                    <!-- You can add more past projects as additional cards here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Courses Section -->
-        <section id="courses" class="section">
-            <div class="container">
-                <h2 class="section-title">Analytical Courses Taken</h2>
-                <div class="courses-grid">
-                    <!-- Course 1: Artificial Intelligence -->
-                    <div class="project-card">
-                        <div class="project-title">
-                            <i class="fas fa-robot" style="color: #C96A92;"></i>
-                            CIS 5210: Artificial Intelligence
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-desc">
-                            Explored core AI and machine learning techniques including search algorithms,
-                            probabilistic reasoning, natural language processing, and knowledge representation.
-                            Built intelligent Python-based agents and applied data-driven methods to decision-making
-                            and predictive modeling tasks.
-                        </div>
-                        <div class="project-links">
-                            <a href="https://online.seas.upenn.edu/courses/cis-521-artificial-intelligence/"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-graduation-cap"></i> Course Page
-                            </a>
-                        </div>
-                        <div>
-                            <br>
-                            Machine Learning || Probabilistic Models
-                        </div>
-                    </div>
-
-                    <!-- Course: Computer Methods in Mathematical Science I -->
-                    <div class="project-card">
-                        <div class="project-title">
-                            MATH 3200: Computer Methods in Mathematical Science I
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-desc">
-                            Developed Python programs for numerical integration, equation solving, linear algebra, and
-                            differential equations. Analyzed algorithm accuracy, error propagation, and computational
-                            efficiency.
-                        </div>
-                        <div class="project-links">
-                            <a href="https://catalog.upenn.edu/search/?search=math+3200" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fas fa-graduation-cap"></i> Course Page
-                            </a>
-                        </div>
-                        <div>
-                            <br>
-                            <p>
-                                Error Analysis || ODE
-                            </p>
-                            Linear Algebra || Numerical Integration
-                        </div>
-                    </div>
-
-                    <!-- Course 3: STAT -->
-                    <div class="project-card">
-                        <div class="project-title">
-                            <i class="fas fa-chart-line" style="color: #C96A92;"></i>
-                            STAT 4310: Statistical Inference
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">R</span>
-                        </div>
-                        <div class="project-desc">
-                            Applied core statistical inference methods including graphical analysis, one- and two-sample
-                            confidence intervals and hypothesis tests. Built and evaluated
-                            linear, nonlinear, and logistic regression models with variable selection, and performed
-                            categorical data analysis and goodness-of-fit tests.
-                        </div>
-                        <div class="project-links">
-                            <a href="https://apps.wharton.upenn.edu/syllabi/202610/STAT4310001/" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fas fa-graduation-cap"></i> Course Syllabi
-                            </a>
-                        </div>
-                        <div>
-                            <p>
-                                ANOVA || Regression || Inference
-                            </p>
-                            Logistic regression || Categorical data
-                        </div>
-                    </div>
-
-                    <!-- Course 5: STAT 5710 -->
-                    <div class="project-card">
-                        <div class="project-title">
-                            <i class="fas fa-database" style="color: #C96A92;"></i>
-                            STAT 5710: Modern Data Mining
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">R</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-desc">
-                            Explored modern statistical learning methods beyond classical regression, including LASSO,
-                            Ridge regression, K-Nearest Neighbors (KNN), Random Forest, Support Vector Machines (SVM),
-                            Principal Component Analysis (PCA), and the bootstrap. Applied text mining techniques through
-                            PCA and worked with a large collection of challenging real-world datasets to tackle practical
-                            data analysis problems.
-                        </div>
-                        <div class="project-links">
-                            <a href="https://statistics.wharton.upenn.edu/programs/phd/course-descriptions/"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-graduation-cap"></i> Course Page
-                            </a>
-                        </div>
-                        <div>
-                            <br>
-                            <p>
-                                LASSO || Ridge || Random Forest
-                            </p>
-                            SVM || PCA || Text Mining || Bootstrap
-                        </div>
-                    </div>
-
-                    <!-- Course 6: STAT 5900/9210 -->
-                    <div class="project-card">
-                        <div class="project-title">
-                            STAT 5900: Observational Studies
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">R</span>
-                        </div>
-                        <div class="project-desc">
-                            Covered statistical methods for the design and analysis of observational studies, including
-                            the potential outcomes framework for causal inference and randomization inference for
-                            randomized experiments. Applied matching, propensity score, and regression methods for
-                            controlling confounding, along with tests of hidden bias, sensitivity analysis, and
-                            instrumental variables.
-                        </div>
-                        <div class="project-links">
-                            <a href="https://apps.wharton.upenn.edu/syllabi/202410/STAT9210001/"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-graduation-cap"></i> Course Syllabi
-                            </a>
-                        </div>
-                        <div>
-                            <br>
-                            <p>
-                                Causal Inference || Potential Outcomes
-                            </p>
-                            Propensity Scores || Sensitivity Analysis || Instrumental Variables
-                        </div>
-                    </div>
-
-                    <!-- Course 7: MATH 3600 -->
-                    <div class="project-card">
-                        <div class="project-title">
-                            <i class="fas fa-square-root-variable" style="color: #C96A92;"></i>
-                            MATH 3600: Real Analysis
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Proofs</span>
-                        </div>
-                        <div class="project-desc">
-                            Developed a rigorous, proof-based understanding of the behavior of real-valued functions,
-                            covering limits, derivatives, and integrals from first principles. Explored the surprising
-                            depth of the real numbers and the broader analytical tools used to reason about them, building
-                            the language and framework to pose and prove precise mathematical statements.
-                        </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-graduation-cap"></i> Course Info
-                            </a>
-                        </div>
-                        <div>
-                            <br>
-                            <p>
-                                Limits || Derivatives || Integrals
-                            </p>
-                            Real Numbers || Rigorous Proof
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Let’s Connect</h2>
-                <div class="contact-flex">
-                    <!-- <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/xahana" target="_blank">github.com/xahana</a>
-                    </div> -->
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://linkedin.com/in/nawshin-ahana"
-                            target="_blank">linkedin.com/in/nawshin-ahana</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:ahana.nawshin@gmail.com">ahana.nawshin@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© 2026 Nawshin Ahana – Personal Portfolio.</p>
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Let's connect</h2>
         </div>
-    </footer>
+        <div class="contact-flex reveal">
+          <div class="contact-item">
+            <i class="fab fa-linkedin-in"></i>
+            <a href="https://linkedin.com/in/nawshin-ahana" target="_blank" rel="noopener">linkedin.com/in/nawshin-ahana</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:ahana.nawshin@gmail.com">ahana.nawshin@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Nawshin Ahana</p>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      <div class="modal-code" id="modalCode"></div>
+      <h3 id="modalTitle"></h3>
+      <p class="modal-meta"><i class="fas fa-user-tie"></i><span id="modalProf"></span></p>
+      <p class="modal-meta"><i class="fas fa-star"></i><span id="modalGrade"></span></p>
+      <div class="modal-tags" id="modalTags"></div>
+      <p class="modal-body" id="modalDesc"></p>
+      <a class="modal-link" id="modalLink" href="#" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i> View syllabus / course catalog
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Mobile nav ----------
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+      navToggle.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      })
+    );
+
+    // ---------- Course modal ----------
+    const backdrop = document.getElementById('modalBackdrop');
+    const modalCode = document.getElementById('modalCode');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalProf = document.getElementById('modalProf');
+    const modalGrade = document.getElementById('modalGrade');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalTags = document.getElementById('modalTags');
+    const modalLink = document.getElementById('modalLink');
+    const modalClose = document.getElementById('modalClose');
+
+    let lastFocused = null;
+
+    function openModal(btn) {
+      lastFocused = btn;
+      modalCode.textContent = btn.dataset.code || '';
+      modalTitle.textContent = btn.dataset.title || '';
+      modalProf.textContent = btn.dataset.prof || '—';
+
+      modalDesc.textContent = btn.dataset.desc || '';
+      modalTags.innerHTML = '';
+      (btn.dataset.tags || '').split('|').filter(Boolean).forEach(t => {
+        const span = document.createElement('span');
+        span.className = 'tech-tag';
+        span.textContent = t;
+        modalTags.appendChild(span);
+      });
+
+      const code = (btn.dataset.code || '').replace(/\s+/g, '+');
+      modalLink.href = `https://catalog.upenn.edu/search/?search=${code}`;
+
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll('.course-btn').forEach(btn =>
+      btn.addEventListener('click', () => openModal(btn))
+    );
+    modalClose.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && backdrop.classList.contains('open')) closeModal();
+    });
+
+    // ---------- Reveal on scroll ----------
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 </body>
-
 </html>
